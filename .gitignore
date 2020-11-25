@@ -40,7 +40,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-
+dev.sqlite3
 # TypeScript v1 declaration files
 typings/
 
