@@ -3,7 +3,7 @@
 * Execute o comando (na raiz desta pasta): npm install
 * Por fim, execute: npm start
 
-# Desenvolvido por:
+### Desenvolvido por:
 * Dáwid Silva Oliveira
 * Alex Ferreira da Silva
 
