@@ -1,6 +1,6 @@
 const app = require('express')()
 const server = require('http').createServer(app)
-const io = require('socket.io')(server)
+const io = require('socket.io')(server) // instancia um socket
 const consign = require('consign')
 const db = require('./config/db')
 const PORT = 3000;
@@ -13,13 +13,13 @@ consign()
 
 app.db = db
 
-io.on("connection", (socket) => {
-    console.log(`Conectado: ${socket.id}`);
-    socket.on("add_note", (data) => {
-        io.emit("add_note_in_list", data)
+io.on("connection", (socket) => { // realiza a conexão
+    console.log(`Conectado: ${socket.id}`); // mostra quem se conectou
+    socket.on("add_note", (data) => { // ouve quando o client solicita uma alteração no banco de dados
+        io.emit("add_note_in_list", data) // envia a alteração solicitada pelo client pra todos da plataforma
     });
-    socket.on("remove_note", (data) => {
-        io.emit("remove_note_in_list", data)
+    socket.on("remove_note", (data) => { // ouve quando o client solicita uma alteração no banco de dados
+        io.emit("remove_note_in_list", data) // envia a alteração solicitada pelo client pra todos da plataforma
     });
 
 })
